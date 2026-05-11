@@ -3,58 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - SmartCash</title>
+    <title>SmartCash - E-Kantin Thursina</title>
     <style>
+        /* Konfigurasi Warna Thursina */
+        :root {
+            --biru-thursina: #003380;
+            --kuning-thursina: #FFC107;
+            --putih: #ffffff;
+            --abu-muda: #f4f4f4;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #003380; /* Biru Thursina */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
+            padding: 0;
+            background-color: var(--abu-muda);
         }
-        .login-box {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            width: 350px;
-            text-align: center;
+
+        /* Navbar */
+        header {
+            background-color: var(--biru-thursina);
+            color: var(--putih);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        h2 { color: #003380; margin-bottom: 20px; }
-        input {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-sizing: border-box;
-        }
-        .btn-login {
-            background-color: #FFC107; /* Kuning Thursina */
-            color: #003380;
-            border: none;
-            padding: 12px;
-            width: 100%;
-            border-radius: 8px;
+
+        .logo {
+            font-size: 1.5rem;
             font-weight: bold;
-            cursor: pointer;
-            margin-top: 10px;
+            color: var(--kuning-thursina);
         }
-        .btn-login:hover { background-color: #e6af06; }
-        a { color: #003380; text-decoration: none; font-size: 0.9rem; }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+        }
+
+        .btn-login {
+            background-color: var(--kuning-thursina);
+            color: var(--biru-thursina) !important;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--biru-thursina);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
+
+        .hero h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        .hero p {
+            color: var(--kuning-thursina);
+            font-size: 1.1rem;
+        }
+
+        /* Menu Section */
+        .container {
+            padding: 40px 5%;
+        }
+
+        h2 {
+            color: var(--biru-thursina);
+            border-left: 5px solid var(--kuning-thursina);
+            padding-left: 10px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 150px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+        }
+
+        .card-info {
+            padding: 15px;
+        }
+
+        .card-info h3 {
+            margin: 0;
+            color: var(--biru-thursina);
+        }
+
+        .price {
+            color: #e67e22;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        .btn-order {
+            width: 100%;
+            padding: 10px;
+            background-color: var(--biru-thursina);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn-order:hover {
+            background-color: #00255a;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #888;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
-    <div class="login-box">
-        <h2>Login SmartCash</h2>
-        <form>
-            <input type="text" placeholder="Username (Admin/User)" required>
-            <input type="password" placeholder="Password" required>
-            <button type="button" class="btn-login">MASUK</button>
-        </form>
-        <p><a href="index.html">← Kembali ke Menu</a></p>
+
+    <header>
+        <div class="logo">SmartCash.</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Menu</a>
+            <a href="login.html" class="btn-login">Login</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>E-Kantin Thursina</h1>
+        <p>Pesan Makan Lebih Cepat, Belajar Jadi Lebih Nikmat</p>
+    </section>
+
+    <div class="container">
+        <h2>Menu Populer</h2>
+        <div class="menu-grid">
+            <div class="card">
+                <div class="card-img">🥘 Foto Makanan</div>
+                <div class="card-info">
+                    <h3>Nasi Goreng Spesial</h3>
+                    <div class="price">Rp 15.000</div>
+                    <button class="btn-order">Tambah ke Keranjang</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img">🍜 Foto Makanan</div>
+                <div class="card-info">
+                    <h3>Mie Ayam Bakso</h3>
+                    <div class="price">Rp 12.000</div>
+                    <button class="btn-order">Tambah ke Keranjang</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img">🥤 Foto Minuman</div>
+                <div class="card-info">
+                    <h3>Es Teh Manis</h3>
+                    <div class="price">Rp 5.000</div>
+                    <button class="btn-order">Tambah ke Keranjang</button>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <footer>
+    E-Kantin 
+    </footer>
+
 </body>
 </html>
