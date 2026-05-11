@@ -1,5 +1,5 @@
 # E-Kantin Digital Thursina 🍔🥤
-**SmartCash** adalah platform kantin digital yang dirancang untuk memudahkan siswa dan guru dalam memesan makanan tanpa harus mengantre lama. Website ini mengintegrasikan sistem kasir, pemesanan online, dan jasa antar makanan (Delivery Order) dalam satu platform sekolah yang terintegrasi.
+**E-Kantin** adalah platform kantin digital yang dirancang untuk memudahkan siswa dan guru dalam memesan makanan tanpa harus mengantre lama. Website ini mengintegrasikan sistem kasir, pemesanan online, dan jasa antar makanan (Delivery Order) dalam satu platform sekolah yang terintegrasi.
 
 ---
 
