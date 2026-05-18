@@ -312,7 +312,6 @@
     </style>
 </head>
 <body>
-    <!-- HALAMAN 1: GET STARTED -->
     <div id="page1" class="page-1">
         <div class="logo-large">
             <div class="logo-thursina">THURSINA</div>
@@ -322,7 +321,6 @@
         <button class="get-started-btn" id="getStartedBtn">🚀 Get Started</button>
     </div>
 
-    <!-- HALAMAN 2: PILIH ADMIN ATAU PELANGGAN -->
     <div id="page2" class="page-2 hidden">
         <div class="role-card">
             <div class="role-title">Pilih Akses Anda</div>
@@ -343,7 +341,6 @@
         </div>
     </div>
 
-    <!-- HALAMAN 3: LOGIN / SIGN UP -->
     <div id="page3" class="page-3 hidden">
         <div class="login-card">
             <div style="text-align: center;">
@@ -401,11 +398,9 @@
             localStorage.setItem('thursina_welfmart_users', JSON.stringify(db));
         }
 
-        // State
         let currentRole = null;
         let isSignupMode = false;
 
-        // DOM elements
         const page1 = document.getElementById('page1');
         const page2 = document.getElementById('page2');
         const page3 = document.getElementById('page3');
@@ -441,11 +436,6 @@
             messageArea.innerHTML = type === 'error' ? `❌ ${msg}` : `✅ ${msg}`;
             messageArea.style.background = type === 'error' ? '#fee2e2' : '#e6f7e6';
             messageArea.style.color = type === 'error' ? '#991b1b' : '#166534';
-            setTimeout(() => {
-                if (messageArea.innerHTML === `❌ ${msg}` || messageArea.innerHTML === `✅ ${msg}`) {
-                    // biarkan
-                }
-            }, 3000);
         }
 
         function updatePage3UI() {
@@ -526,12 +516,17 @@
                     showMessage('❌ Password salah!', 'error');
                     return;
                 }
+                
                 const roleName = currentRole === 'pelanggan' ? 'Pelanggan' : 'Admin';
-                showMessage(`🎉 Selamat datang, ${email}! Login sebagai ${roleName} berhasil.`, 'success');
+                showMessage(`🎉 Selamat datang, ${email}! Login berhasil.`, 'success');
+                
+                // ===== PERBAIKAN UTAMA: SIMPAN STATE DAN PINDAH HALAMAN =====
+                localStorage.setItem('user_role', currentRole);
+                localStorage.setItem('user_logged', email);
+                
                 setTimeout(() => {
-                    alert(`✨ Berhasil login sebagai ${roleName} ✨\nSelamat datang di Thursina Welfmart!`);
-                    resetToStart();
-                }, 1000);
+                    window.location.href = 'index.html'; // Mengarahkan ke halaman dashboard utama
+                }, 800);
             }
         }
 
@@ -548,7 +543,6 @@
             showPage(1);
         }
 
-        // Event Listeners
         getStartedBtn.addEventListener('click', () => showPage(2));
         backToStart.addEventListener('click', () => resetToStart());
         backToRole.addEventListener('click', () => {
@@ -567,7 +561,6 @@
         });
         loginForm.addEventListener('submit', handleAuthSubmit);
 
-        // Pilihan role di page2
         document.querySelectorAll('.role-option').forEach(option => {
             option.addEventListener('click', (e) => {
                 const role = option.getAttribute('data-role');
@@ -575,7 +568,6 @@
             });
         });
 
-        // Initial
         showPage(1);
     </script>
 </body>
